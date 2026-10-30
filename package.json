@@ -1,12 +1,13 @@
 {
-  "name": "node-aiven-mysql-app",
+  "name": "secure-auth-app",
   "version": "1.0.0",
-  "description": "Node.js application connected to Aiven MySQL hosted on Render",
-  "main": "index.js",
+  "description": "A secure authentication system handling hashed passwords with Express and MySQL",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "mysql2": "^3.9.7"
